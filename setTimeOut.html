@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <button>ボタン</button>
+        <script>
+            function sleep( ms ){
+
+                setTimeout( function(){
+                    alert( "sleep関数が完了しました" );
+                } , ms ) ;
+            }
+            
+            sleep( 3000 );
+
+            const btn = document.querySelector( "button" );
+            function clickhandler(){
+                    alert( "ボタンがクリックされました。" );
+             }
+
+            btn.addEventListener( "click" , clickhandler );
+                
+        </script>
+    </body>
+</html>
