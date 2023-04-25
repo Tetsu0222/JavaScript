@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <script>
+
+            window.name = "太郎";
+            
+            const which = () => {
+                console.log( this.name );
+            }
+
+            const hanako = {
+                name:"花子",
+                callName(){
+                    which();
+                }
+            }
+
+            hanako.callName();
+
+        </script>
+
+    </body>
+</html>

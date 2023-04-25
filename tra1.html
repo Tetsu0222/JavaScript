@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <script>
+
+            window.name = "花子";
+            
+            function hello(){
+                console.log( "こんにちは、" + this.name );
+            }
+
+            const taro = {
+                name:"太郎",
+                hello:hello
+            }
+
+            hello();
+            taro.hello();
+
+        </script>
+
+    </body>
+</html>
