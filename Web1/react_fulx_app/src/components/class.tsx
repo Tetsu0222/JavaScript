@@ -82,5 +82,19 @@ class User implements IUser {
 }
 
 
+//アクセス修飾子
+class BasePoint3D{
+    public x:number;
+    private y:number;
+    protected z:number;
+}
+
+const basePoint = new BasePoint3D()
+basePoint.x
+//basePoint.y アクセスできないためエラーが発生する。
+
+
+
+
 
 
