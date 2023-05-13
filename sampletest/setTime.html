@@ -1,0 +1,39 @@
+<html>
+
+    <body>
+
+        <button>ボタン</button>
+
+        <script>
+
+            //非同期処理はメインスレッドから一時的に切り離された処理のこと。
+            //以下のように、setTimeoutに渡すコールバック関数などが該当する。
+
+
+            //コールバック関数 : 第1引数が関数、第2引数が時間
+            function sleep( ms ){
+
+                //setTimeoutを使用して、msミリ秒後に、ダイアログでメッセージを表示するコールバック関数を実装
+                setTimeout( function(){
+                    alert( "sleep関数が完了しました" );
+                } , ms );
+
+            }
+
+            //sleep関数を実行
+            sleep( 3000 );
+
+            //ボタンにクリック時の処理を実装
+            const btn = document.querySelector( "button" ); //documentオブジェクトのメソッドでエレメントを取得
+            function clickHandler(){                        //アクションの内容を実装
+                alert( "ボタンがクリックされました" );
+            }
+
+            btn.addEventListener( "click" , clickHandler ); //ボタンにアクションを登録
+
+
+        </script>
+
+    </body>
+
+</html>
