@@ -1,0 +1,34 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //レキシカルスコープ
+            //記述する場所によって参照できる変数が異なるスコープであり、実行中のコードが属するスコープの外側のスコープとも呼べる。
+
+            let scriptVal = "スクリプトスコープの変数";
+
+            function fn(){
+                let fnVal = "関数スコープの変数";
+                if( true ){
+                    console.log( scriptVal );//レキシカルスコープ（グローバルスコープ）のため、参照可能
+                    console.log( fnVal );   //レキシカルスコープの変数のため、参照可能
+                    console.log( scriptFn() );  //レキシカルスコープにあるグローバルスコープの関数のため、参照可能
+                    console.log( sVal );    //エラーが発生する。レキシカルスコープの変数ではない。
+                }
+            }
+
+            function scriptFn(){
+                let sVal = "scriptFnの変数";
+                return "関数の実行結果";
+            }
+
+            fn();
+
+
+        </script>
+        
+    </body>
+
+</html>
