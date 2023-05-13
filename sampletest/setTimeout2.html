@@ -1,0 +1,23 @@
+<html>
+
+    <body>
+
+        <button>ボタン</button>
+
+        <script>
+
+            let val = 0;
+
+            //1秒後にvalに1が代入される。
+            setTimeout( () => {
+                val = 1;
+            } , 1000 );
+
+            //非同期処理によって、setTimeoutの実行を待たずに、valの値が出力される。
+            console.log( val ); //1ではなく0が出力される。
+
+        </script>
+
+    </body>
+
+</html>
