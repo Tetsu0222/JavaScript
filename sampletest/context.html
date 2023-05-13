@@ -1,0 +1,73 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //グローバル変数の所属
+
+            //"何かしらの" 変数aaaとの解釈になる。
+            var aaa = "A";  //"何かしら"の部分が省略されているが、実際はwindowに属している。
+
+            console.log( aaa ); // "A"が出力
+            console.log( window.aaa ); // "A"が出力
+            console.log( aaa === window.aaa ); // trueが出力
+
+
+            //関数として扱ってみる。
+            var aaa = function(){
+                alert( this === window ); //trueが出力される。変数aaaから見れば、"何かしら"はthisとなるため。
+            }
+
+            //オブジェクトとして扱ってみる。
+            var o = { x:'xxx' , 
+                f:function(){
+                    alert( this.x );    //thisはオブジェクト変数のoになる。
+                } 
+            };
+
+            o.f();  //xxxを出力する。
+
+
+            //もっと試してみる。
+            var aaa2 = function(){
+                alert( this.x );
+            };
+
+            var b = {
+                x:'bbb' , f:aaa2 
+            };
+
+            var c = {
+                x:'ccc' , f:aaa2
+            };
+
+            b.f();  //bbbが出力
+            c.f();  //cccが出力
+
+
+
+            //呼ばれ方でthisが変わる。
+            var o = new function(){
+                this.x = 'xxx';
+                this.f = function(){
+                    alert( this.x );
+                };
+            }
+
+            o.f();  //xxxが出力
+
+            var aaa3 = { x:'xyz' };
+            aaa3.f = o.f();
+            aaa3.f();   //xyzが出力
+
+            
+
+
+
+
+        </script>
+        
+    </body>
+
+</html>
