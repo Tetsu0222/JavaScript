@@ -1,0 +1,34 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //スコープチェーン
+            //レキシカルスコープに同じ名前の変数が存在する場合、
+
+
+            window.whichVal = "グローバルスコープ";
+            let whichVal = "スクリプトスコープ";
+
+            function outerScope(){
+                let whichVal = "outerScope関数スコープ";
+
+                function innerScope(){
+                    let whichVal = "innerScope関数スコープ";    //ここが定義されていなければ、レキシカルスコープの変数を探しに行く。
+                    console.log( whichVal ); //innerScope関数スコープが出力される。
+                }
+
+                innerScope();
+            }
+
+            outerScope();
+
+            //自スコープに変数が見つからなければ、レキシカルスコープへ変数を探しに行く。
+            //グローバルスコープまで辿っても変数が見つからなければ、エラーが発生する。
+
+        </script>
+        
+    </body>
+
+</html>
