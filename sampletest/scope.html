@@ -38,9 +38,31 @@
                 console.log( Valvar );  //varが出力される。今回のケースでは、Valvarはグローバルスコープに属している。
             }
 
-            
+
+            //スクリプトスコープ
+            //グローバルスコープと同様の扱いで、トップレベルに配置されたletやconstで宣言された変数や関数が属するスコープ
+            let scriptval = "スクリプトスコープの変数"; //windowオブジェクトのプロパティとして格納はされないことに注意
 
         </script>
+
+
+        
+        <script type="module">
+            //モジュールを有効化
+            //トップレベルやタグ直下の変数や関数は、グローバルスコープではなくモジュールスコープに属するようになる。
+
+            let moduleVal = "モジュール";
+            console.log( moduleVal );
+
+        </script>
+
+        <script>
+            console.log( moduleVal ); //エラーが発生する。
+        </script>
+
+
+        
+
         
     </body>
 
