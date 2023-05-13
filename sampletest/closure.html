@@ -1,0 +1,34 @@
+<html>
+
+    <body>
+
+        <script>
+
+        //クロージャ
+        //関数内で使用されている変数がレキシカルスコープの変数の値を保持し続ける状態のこと。
+        //関数が終了すると、関数外から参照できないため、値を不要とみなされてガベージコレクションによって定期的にメモリから削除される。
+
+        function factory( greeting ){
+            function innerFn( name ){
+                console.log( greeting + "、" + name );   //レキシカルスコープの変数であるgreetingを使用
+            }
+            return innerFn; //関数の実行結果を返す。
+        }
+
+        const hello = factory( "こんにちは" );  //呼び出し時の引数がgreetingの値    1
+        hello( "太郎" );    //こんにちは、太郎が出力される。 2
+
+
+        //1 hello関数は冒頭で定義されている関数のコールバック関数で中身にあるinnerFnが引き当てられる。
+        //factory()そのものが引き当てられるわけではないことに注意
+        //hello関数には、引数で定義されているgreetingとなる値が保持されている。
+
+        //2 hello関数を呼び出す。
+        //ここでの引数は、nameに引き当てられる。
+        //innerFn()が実行されて、保持されているgreetingの値と、引数のnameの値が結合された文字列を出力する。
+
+        </script>
+        
+    </body>
+
+</html>
