@@ -1,0 +1,31 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //クラスの定義
+            class TestCls{
+
+                //コンストラクタ
+                constructor( arg ){
+                    this.prop = arg;
+                }
+
+            }
+
+            //インスタンス化
+            const obj = new TestCls( "引数" );
+
+            console.log( obj.prop );    //「引数」と出力される。
+
+            obj.prop = "値の変更";
+
+            console.log( obj.prop );    //「値の変更」と出力される。
+            
+
+        </script>
+        
+    </body>
+
+</html>
