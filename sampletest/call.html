@@ -1,0 +1,27 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //thisの束縛
+            //call()メソッドは、bind()とは異なり、定義した時点で関数を呼び出して実行する。
+
+            const taro = {
+                name : "太郎"
+            }
+
+            function hello( greeting ){
+                console.log(
+                    '${ greeting }、${ this.name }'
+                );
+            }
+
+            //使用方法などはbind()と共通だが、call()は定義した時点で関数を呼び出す。
+            hello.call( taro , "こんにちは、" );    //こんにちは、太郎が出力される。
+
+        </script>
+        
+    </body>
+
+</html>
