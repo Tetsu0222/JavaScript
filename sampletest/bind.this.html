@@ -1,0 +1,47 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //thisの束縛
+            //bind()メソッドを使用すると、thisの参照先の値を自由に変更できる。
+
+            function hello( greething ){
+                console.log( greething + this.name );
+            }
+
+            const taro = {
+                name : "太郎"
+            }
+
+            //bind()でthisと引数を束縛する。
+            //第1引数でthisの参照先にしたいオブジェクトを指定する。
+            //第2引数以降は、関数に渡す値（通常の引数として用いる)
+            const helloTaro = hello.bind( taro , "こんにちは、" );
+
+            helloTaro();    //こんにちは、太郎
+
+
+            window.name = "花子";
+
+            const taro2 = {
+                name : "太郎",
+                hello : function(){
+                    console.log( "こんにちは、" + this.name );
+                }
+            }
+
+            //bind()でthisをtaro2に固定
+            setTimeout( taro2.hello.bind( taro2 ) , 2000 ); //2秒後に、「こんにちは、太郎」と出力される。
+
+            //thisは関数を呼び出した元で判断される。
+            //この場合はwindowオブジェクトに属しているため、thisの参照先はwindow.nameとなる。
+            setTimeout( taro2.hello , 3000 );   //3秒後に、「こんにちは、花子」と表示される。
+
+
+        </script>
+        
+    </body>
+
+</html>
