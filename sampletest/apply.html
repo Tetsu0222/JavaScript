@@ -1,0 +1,28 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //thisの束縛
+            //apply()メソッド
+            //call()メソッドと同様、thisを束縛し、定義された関数を呼び出す。
+            //引数が配列なことに差異がある。
+
+            const taro = {
+                name : "太郎"
+            };
+
+            function hello( greeting , name ){
+                console.log( '${ greeting }、${ name }' );
+            }
+
+            //hello()関数の第1引数へ0番目の値、第2引数へ1番目の値を渡している。
+            //関数内にthisでの呼び出しが存在しないため、第1引数はnullで定義している。
+            hello.apply( null , [ "こんにちは、" , "太郎" ] );  //こんにちは、太郎が出力される。
+
+        </script>
+        
+    </body>
+
+</html>
