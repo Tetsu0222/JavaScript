@@ -1,0 +1,50 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //クラスにメソッドを定義する。
+            class TestCls{
+                method( arg ){
+                    console.log( '引数:[ ${arg} ]でメソッドを実行' );
+                }
+            }
+
+            const test = new TestCls;
+            test.method( "テスト" );    //「引数テストでメソッド実行」と出力される。
+
+            class User {
+
+                //コンストラクタ
+                constructor( userName , password ){
+                    this.userName = userName;   //thisでクラスのプロパティに値を設定
+                    this.password = password;
+                }
+
+                //ログイン処理
+                login(){
+                    console.log( 'ログイン[ ${this.userName} / ${this.password} ]' );   //thisはクラスを参照する。
+                }
+
+                //パスワード変更
+                changePassword( pwd ){
+                    this.password = pwd;
+                    console.log( 'パスワードが[ ${ this.password } ]に変更されました' );
+                }
+
+            }
+
+            //インスタンス化
+            const taro = new User( "太郎" , "testpass" );
+
+            taro.login();   //クラスのプロパティがそれぞれ出力される。
+
+            taro.changePassword( "test2pass" ); //引数の値が出力される。
+
+
+        </script>
+        
+    </body>
+
+</html>
