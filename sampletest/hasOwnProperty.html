@@ -1,0 +1,30 @@
+<html>
+
+    <body>
+
+        <script>
+
+            class Person{
+
+                constructor(){
+                    this.name = "テスト";
+                }
+
+                hello(){
+                    console.log( "こんにちは" );
+                }
+            }
+
+            const taro = new Person;
+
+            //自身のオブジェクトにプロパティが存在するかを確認するメソッド
+            console.log( taro.hasOwnProperty( "name" ) );   //trueが出力
+
+            //in演算子を用いた確認
+            console.log( "name" in taro ); //trueが出力
+
+        </script>
+        
+    </body>
+
+</html>
