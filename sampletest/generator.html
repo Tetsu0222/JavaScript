@@ -1,0 +1,28 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //ジェネレータ関数
+            function* gen1to3(){
+
+                let index = 1;  //初期値
+                yield index;    //1回目のnext()によって実行される。
+
+                index++;
+                yield index;    //2回目
+
+                index++;
+                yield index;    //3回目
+            }
+
+            const generator = gen1to3();
+
+            console.log( generator.next() );
+
+        </script>
+        
+    </body>
+
+</html>
