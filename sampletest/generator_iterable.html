@@ -1,0 +1,31 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //オブジェクトのプロパティをすべて列挙するクラス
+            class Iterable{
+                *[ Symbol.iterator ](){
+                    for( let key in this ){
+                        yield [ key , this[ key ] ];
+                    }
+                }
+            }
+
+            const fruits = new Iterable();
+            fruits.apple = "リンゴ";
+            fruits.banana = "バナナ";
+            for( const row of fruits ){
+                console.log( row[0] , row[ 1 ] );
+            }
+
+            //apple リンゴ
+            //banana バナナ
+            //それぞれ出力される。
+
+        </script>
+        
+    </body>
+
+</html>
