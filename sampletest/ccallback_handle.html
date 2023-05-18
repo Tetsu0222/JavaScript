@@ -1,0 +1,31 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //非同期処理のハンドリング
+            //非同期処理の後で実行したい処理をコールバック関数内にまとめる。
+            //コールバック地獄が発生しやすいため、敬遠される実装
+
+            let val = -1;
+
+            function timer( callback ){
+                setTimeout( function task() {
+                    val = Math.floor( Math.random() * 11 ); //非同期処理での値の変更
+                    callback( val );                        //コールバック関数に値を渡して変更
+                } , 1000 );
+            }
+
+            function operations( val ){
+                console.log( val );
+            }
+
+            timer( operations );    //コールバック関数としてtimer関数に渡す。
+            //0～10のランダムな値が1秒後にコンソールで出力される。
+
+        </script>
+        
+    </body>
+
+</html>
