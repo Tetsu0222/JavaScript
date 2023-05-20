@@ -1,0 +1,41 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //resolve()メソッド
+            //fulfilledの状態のPromiseインスタンスを返す。
+            //特定の処理を非同期処理として実行したい場合に使用する。
+            
+            let val = 0;
+
+            Promise.resolve().then( () => {
+                console.log( "valの値は" + val + "です" );
+            })
+
+            val = 1;
+
+            console.log( "グローバルコンテキスト終了" );
+
+            //「グローバルコンテキスト終了」
+            //「valの値は1です」が出力
+
+            //Promiseによる非同期処理はタスクキューではなく、ジョブキューで管理されている。
+
+            //タスクキューで管理
+            setTimeout( function task () { console.log( "Taskの実行" ) } );
+
+            //ジョブキューで管理
+            Promise.resolve().then( function job1(){ console.log( "job1の実行" ) } );
+            Promise.resolve().then( function job2(){ console.log( "job2の実行" ) } );
+
+            //ジョブキューとタスクキューが両方存在する場合は、先にジョブキューのジョブがすべて完了してから、タスクキューへと処理が移行する。
+
+            
+
+        </script>
+        
+    </body>
+
+</html>
