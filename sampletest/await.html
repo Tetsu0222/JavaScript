@@ -1,0 +1,40 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //await
+            //Promiseインスタンスの前に記述することで、Promiseのステータスがsettledになるまで、後続のコードの実行を待機する。
+            //非同期関数( async function )にしか使用できない。
+
+            const prom = new Promise( resolve => {
+                setTimeout( () => resolve( "この値を取り出します" ) , 1000 )
+            });
+
+            async function asyncFunction(){
+                const value = await prom;   //resolveの実引数がvalueに代入される。
+                console.log( value );       //Promise(prom)がfulfilledになるまで待機
+            }
+
+            asyncFunction();
+
+
+            //Promiseがrejectedになった場合
+            async function throwError(){
+                try{
+                    await Promise.reject( "Promiseが失敗しました" );
+                }catch( error ){
+                    console.log( error );
+                } 
+            }
+
+            throwError();
+
+
+
+        </script>
+        
+    </body>
+
+</html>
