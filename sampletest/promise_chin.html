@@ -1,0 +1,47 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //Promiseのメソッドはチェーンメソッドで記述できる。
+            //複数のPromiseを直列で実行することができる。
+            //直列とは、前の非同期処理の完了を待って、次の非同期処理の実行を行うこと。
+
+            function promiseFactory( count ){
+
+                return new Promise( ( resolve , reject ) => {
+
+                    setTimeout( () => {
+
+                        count++;
+
+                        console.log( '${ count }回目のコールです。時刻：[${ new Date().toTimeString() }]' );
+
+                        if( count === 3 ){
+                            reject( count );
+                        }else{
+                            resolve( count );
+                        }
+
+                    } , 1000 );
+                });
+            }
+
+            //Promiseチェーン
+            promiseFactory( 0 )
+                .then( count => { return promiseFactory( count ); })
+                .then( count => { return promiseFactory( count ); })
+                .then( count => { return promiseFactory( count ); })
+                .then( count => { return promiseFactory( count ); })
+                .catch( errorCount => {
+                    console.error( 'エラーに飛びました。現在のカウントは${ errorCount }です。' );
+                } ).finally( () => {
+                    console.log( "処理を終了します。" );
+                } );
+
+        </script>
+        
+    </body>
+
+</html>
