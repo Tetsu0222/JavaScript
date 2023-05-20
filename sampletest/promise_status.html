@@ -1,0 +1,29 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //Promiseのステータスは、そのインスタンスをコンソールで出力すると確認できる。
+
+            let promResolve , promReject;
+
+            const prom = new Promise( ( resolve, reject ) => {
+                promResolve = resolve;  //resolveへの参照を変数に保存
+                promReject = reject;    //rejectへの参照を変数に保存
+            });
+
+            //pending(resolve及びrejectが呼び出される前の状態)
+            console.log( prom );    //Promise{<pending>}　が出力
+
+            promResolve( "引数" );
+
+            //fulfilled resolveが呼び出された状態
+            console.log( prom );    //Promise{<fulfilled>:"引数"} が出力
+
+
+        </script>
+        
+    </body>
+
+</html>
