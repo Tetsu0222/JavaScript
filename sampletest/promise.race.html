@@ -1,0 +1,53 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //rece()メソッド
+            //複数のPromiseのいずれかの状態がsettled(fulfilledかrejected)になったときに、Promise.raceに続くthenかcatchメソッドを実行する。
+
+            const myMs = 300;
+            
+            //resolveをmyMsミリ秒後に実行するインスタンス
+            const myResolve = new Promise( resolve => {
+                setTimeout( () => {
+                    resolve( "resolveが呼ばれました" );
+                    console.log( "myResolveが終了しました" );
+                } , myMs );
+            } );
+
+            //200ミリ秒後にrejectを実行するインスタンス
+            const myReject = new Promise( ( _ , reject ) => {
+                setTimeout( () => {
+                    reject( "rejectが呼ばれました" );
+                    console.log( "myRejectの実行が終了しました" );
+                } , 200 );
+            } );
+
+            //raceで呼び出し
+            Promise.race( [ myReject , myResolve ] )
+                .then( value => {
+                    console.log( value );
+                } ).catch( value => {
+                    console.log( value );
+                } );
+
+
+                //myResolveのsetTimeoutに設定した関数がmyMsミリ秒後に呼び出される。
+                //Promiseインスタンスのステータスがfulfilledに変化する。
+
+                //上記によって、Promiseのインスタンスに変化が生じたため
+                //Promise.race()が実行され、then()メソッドが呼び出される。
+
+                //200ミリ秒後に、myRejectのsetTimeoutに設定した関数が呼び出される。
+                //ここの後続の処理(catch）は実行されない。
+
+                //myMsの定義を200よりも大きい数値で定義すると、上記のmyResolveとmyRejectの処理は逆転する。
+                //thenではなく、catchが実行される。
+
+        </script>
+        
+    </body>
+
+</html>

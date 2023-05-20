@@ -5,7 +5,8 @@
         <script>
 
             //Promiseによる並列処理
-            //Promise.all()
+            //Promise.all()によって、すべての処理を並列で実行、すべての処理の完了を待ってから次の処理へ移る。
+            
             function wait( ms ){
                 return new Promise( ( resolve , reject ) => {
                     setTimeout( () => {
