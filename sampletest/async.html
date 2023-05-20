@@ -1,0 +1,27 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //async
+            //関数の先頭につけることによって、非同期関数とすることができる。
+            //非同期関数の戻り値は、必ずPromiseインスタンスになる。
+
+            async function asyncFunction(){
+                return "hello"; //戻り値はString型ではなく、Promiseインスタンス Promise.resolve( "hello" ); これが実際の中身
+            }
+
+            //非同期関数の戻り値はPromiseのため、then()を続けて記述できる。
+            asyncFunction().then( ( returnVal ) => {
+                console.log( returnVal ) 
+            });
+
+            //「hello」が出力される。
+            //helloをPromiseでラップされた値が戻ってくるイメージ
+
+        </script>
+        
+    </body>
+
+</html>
