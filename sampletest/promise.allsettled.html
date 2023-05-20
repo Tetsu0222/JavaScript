@@ -1,0 +1,42 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //allSettedは、すべてのPromiseインスタンスがsettled( fulfilledかrejected )になった時に、thenへ処理を移行する。
+            //catchメソッドは使用しない。
+
+            const myResolve = new Promise( resolve => {
+                setTimeout( () => {
+                    resolve( "resolveが呼ばれました" );
+                    console.log( "myResolveの実行が終了しました" );
+                } , 200 );
+            });
+
+            //200ミリ秒後にrejectを実行するインスタンス
+            const myReject = new Promise( ( _ , reject ) => {
+                setTimeout( () => {
+                    reject( "rejectが呼ばれました" );
+                    console.log( "myRejectの実行が終了しました" );
+                } , 100 );
+            } );
+
+            Promise.allSettled( [ myReject , myResolve ] )
+                .then( arry => {
+                    for( const { status , value , reason } of arry ){
+                        console.log( "ステータス" + status + "値" + value + "エラー"  + reason );
+                    }
+                });
+
+            //myRejectとmyResolveの状態がsettledになるまで、後続の処理を待機する。
+            //rejectedの場合には、reasonプロパティに対してrejectの値
+            //fulfilledの場合には、valueプロパティに大してresolveの値が渡される。
+
+            //ステータスプロパティの値を使って条件判定することで、エラーハンドリングが可能
+
+        </script>
+        
+    </body>
+
+</html>
