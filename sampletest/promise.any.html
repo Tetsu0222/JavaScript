@@ -1,0 +1,49 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //any()は、複数のPromiseインスタンスのいずれかがfulfilledになったタイミングでthenメソッドに処理を移す。
+            //もしくは、すべてのPromiseインスタンスの状態がrejectedになった時に、catchへ処理を移す。
+
+            const myResolve = new Promise( resolve => {
+                setTimeout( () => {
+                    resolve( "resolveが呼ばれました" );
+                    console.log( "myResolveの実行が終了しました" );
+                } , 200 );
+            });
+
+            //200ミリ秒後にrejectを実行するインスタンス
+            const myReject = new Promise( ( _ , reject ) => {
+                setTimeout( () => {
+                    reject( "rejectが呼ばれました" );
+                    console.log( "myRejectの実行が終了しました" );
+                } , 100 );
+            } );
+
+            Promise.any( [ myReject , myResolve ] )
+                .then( value => {
+                    console.log( value );
+                } ).catch( error => {
+                    console.log( error );
+                } );
+
+
+            //myRejectの処理が100ミリ秒後に実行されるが、このインスタンスの結果はrejected
+            //そのため、Promise.anyは待機状態（他のインスタンスの実行を待つ）となる。
+
+            //myResolveが200秒後に実行され、myResolveのインスタンスのステータスがfulfilledとなる。
+            //ここでPromise.anyが実行され、後続のthenの処理に移行する。
+
+            
+
+            //すべてのPromiseインスタンスがrejectedとなった場合(catchへ処理が移行した場合)
+            //Promise.anyに渡される引数はAggregateErrorとなる。
+            
+
+        </script>
+        
+    </body>
+
+</html>
