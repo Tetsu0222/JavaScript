@@ -1,0 +1,42 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //Fetch
+            //サーバーからデータやファイルを取得する非同期のAPI
+            
+            //サーバーに配置したJSONファイルをfetch関数で取得
+            //内容をコンソールで出力する。
+
+            fetch( "sample.json" )  //同じフォルダ内の相対パスを指定
+            .then( response => response.json() )
+            .then( data => {
+                for( const { key , value } of data ){
+                    console.log( key + ":" + value );
+                }
+            } );
+
+            //awaitとasyncを使用
+            async function myFetch(){
+                const response = await fetch( "sample.json" );
+                const data = await response.json(); //jsonメソッドもPromiseを返す。
+                for( const { key , value } of data ){
+                    console.log( key + ":" + value );
+                }
+            }
+
+            myFetch();
+
+
+            //sample.jsonファイル内のJSONデータを取得
+            //コンソールで出力する。
+            
+
+
+        </script>
+        
+    </body>
+
+</html>
