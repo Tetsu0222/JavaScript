@@ -1,0 +1,56 @@
+<html>
+
+    <body>
+
+        <section id="container">
+            <span class="target-cls"></span>
+            <div class="list">
+                <input name="child1">
+                <input name="child2">
+            </div>
+            <p class="target-cls"></p>
+        </section>
+
+        <script>
+
+
+            //Documentオブジェクトに、HTMLの構造がDOMオブジェクトに変換された状態で、ツリー構造で格納されている。
+            //このツリーを構成する個々のオブジェクトをNode(ノード)と呼ぶ。
+            //Nodeの中でも、HTMLタグのみを示す場合、Elementと呼ぶこともある。
+
+            //DOMツリーには、Nodeで構成されたツリー、Elementツリーの2種類が存在する。
+
+            //children Nodeの中でもElementだけ格納されている。
+            //childNodes Nodeそのものが格納されている。
+
+            
+            //セレクタAPIによるHTML要素の取得
+            //JSからHTMLへの入出力は、DOMというAPIを通じて実行される。
+            //JSでは直接HTMLを扱うことができないため、DOMオブジェクトを通してHTMLの情報を扱うことになる。
+
+
+            //id属性から要素を取得
+            const elById = document.querySelector( "#container" ); 
+
+            //classから要素の取得
+            const elsByCls = document.querySelectorAll( ".target-cls" );    //class属性に一致するすべての要素を取得
+            const elByCls = document.querySelector( ".target-cls" );    //一致した最初の要素のみを取得する場合
+
+            //name属性から要素の取得
+            const elsByName = document.querySelectorAll( '[name="child"]' );    //name属性の要素をすべて取得
+
+            //タグ名に一致するすべての要素の取得
+            const elsByTag = document.querySelectorAll( "p" );  //<p>の要素をすべて取得する。
+
+            
+
+            
+
+
+
+
+        </script>
+        
+    </body>
+
+</html>
