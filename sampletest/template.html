@@ -1,0 +1,23 @@
+<html>
+
+    <body>
+
+        <!-- ここに要素を追加する -->
+
+        <!-- テンプレート内の記述は画面上に表示されない。 -->
+        <template id="tmpl">
+            <span>テンプレートHTMLを定義</span>
+        </template>
+
+        <script>
+
+            const tmpl = document.querySelector( "#tmpl" );
+            const targetNewElement = tmpl.content;      //contentプロパティへアクセス
+            document.body.prepend( targetNewElement );  //templateの中身をbodyへ反映
+
+
+        </script>
+        
+    </body>
+
+</html>
