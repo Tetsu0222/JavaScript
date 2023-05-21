@@ -1,0 +1,44 @@
+<html>
+
+    <body>
+        <div>
+            <button id="minus">-</button>
+            <span id="number">0</span>
+            <button id="plus">+</button>
+        </div>
+
+        <script>
+
+            //イベントハンドラ
+            //イベントが発生した時に実行される関数（アクション）のこと。
+            //window,Element,Documentなどのonから始まるプロパティに大してアクションを設定することで、イベント発生時に特定の処理を実行できる。
+
+            //数値の初期化
+            let count = 0;
+
+            //Elementの取得
+            const number = document.querySelector( "#number" );
+            const plusBtn = document.querySelector( "#plus" );
+            const minusBtn = document.querySelector( "#minus" );
+
+            //plusボタンのクリック時のアクションを設定
+            plusBtn.onclick = function( event ){
+                count++;                    //定数をインクリメント
+                number.textContent = count; //numberのテキストを更新する。
+            };
+
+            //minusボタンがクリックされた時のアクションを設定
+            minusBtn.onclick = function( event ){
+                count--;
+                number.textContent = count;
+            };
+
+            
+            //各種ボタンが押されると、それぞれのボタンに対応した関数にEventオブジェクトが渡される。
+
+
+        </script>
+        
+    </body>
+
+</html>
