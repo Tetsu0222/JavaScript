@@ -1,0 +1,22 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //DOMContentLoadedもしくはloadイベント内でJSを実行することで、コードの実行タイミングをDOMツリー構築後に設定できる。
+            document.addEventListener( "DOMContentLoaded" , () => {
+
+                //関数内の以下のコードはDOMツリー全体の構築が完了してから実行される。
+                const afterEl = document.querySelector( "#after" );
+                console.log( afterEl.textContent );
+
+                //scriptタグを閉じた後に記述されている要素も取得できる。
+                
+            })
+
+        </script>
+        
+    </body>
+
+</html>
