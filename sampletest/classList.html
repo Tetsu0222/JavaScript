@@ -1,0 +1,30 @@
+<html>
+
+    <body>
+
+        <div>数秒後に文字と背景の色が変わる。</div>
+
+        <style>
+            .preparedClass{
+                color: red;
+                background-color: blue;
+            }
+        </style>
+
+        <script>
+
+            //classListによるスタイルの変更
+            //ElementオブジェクトのclassListプロパティに格納されているメソッドを使用する。
+
+            setTimeout( () => {
+                const div = document.querySelector( "div" );    //divタグを指定
+                div.classList.add( "preparedClass" );           //2秒後にスタイルを適用させる。
+            } , 2000 );
+
+
+
+        </script>
+        
+    </body>
+
+</html>
