@@ -1,0 +1,35 @@
+<html>
+
+    <body>
+
+        <div id="test">
+            <span>
+                Hello World
+            </span>
+        </div>
+
+        <script>
+
+            const testEl = document.querySelector( "#test" );
+            console.log( testEl.textContent );  //HTMLタグが含まれず Hello Worldのみ出力
+
+            setTimeout( () => {
+                testEl.textContent = "<h1>Good World</h1>";
+            } , 2000 );
+
+            //2秒後に、Hello Word が <h1>Good World</h1> へ変更される。
+            //textContentはHTMLタグもただの文字列とみなして実行される。
+
+            /*
+            <div id="test">
+            <span>
+                "Hello World" → "<h1>Good World</h1>"
+            </span>
+            </div>
+            */
+
+        </script>
+        
+    </body>
+
+</html>
