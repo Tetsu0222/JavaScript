@@ -1,0 +1,27 @@
+<html>
+
+    <body>
+
+        <div id="test">
+            <span>Heloo World</span>
+        </div>
+
+        <script>
+
+            //innerhtml
+            //HTMLタグの情報も含めて文字列として取得する場合に用いる。
+            const testEl = document.querySelector( "#test" );   //id属性testの要素を取得する。
+            console.log( testEl.innerHTML );    //<span>Heloo World</span>　が出力される。
+
+            //innerHTMLの変更
+            setTimeout( () => {
+                testEl.innerHTML = "<h1>Good World</h1>";
+            } , 2000 );
+
+            //2秒後に<h1>Good World</h1>へ変更
+
+        </script>
+        
+    </body>
+
+</html>
