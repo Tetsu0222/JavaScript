@@ -1,0 +1,23 @@
+<html>
+
+    <body>
+
+        <div>ここの色が変わるよ！！！</div>
+
+        <script>
+
+            //CSSの適用を数秒後に変更する。
+            setTimeout( () => {
+                const div = document.querySelector( "div" );
+                div.style.color = "red";
+                div.style.backgroundColor = "blue";
+            } , 3000 );
+
+            //styleプロパティに文字色と背景色を定義
+            //3秒後に、divタブの文字と背景の色が変わる。
+
+        </script>
+        
+    </body>
+
+</html>
