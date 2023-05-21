@@ -1,0 +1,32 @@
+<html>
+
+    <body>
+
+        <section style="background-color:yellow;">
+            これは祖先要素です。
+            <div>
+                <span id="target"></span>
+            </div>
+        </section>
+
+        <section style="background-color:orange;">
+            これは祖先要素ではありません。
+        </section>
+
+        <script>
+
+            //closest()メソッドを用いると、祖先要素にさかのぼって値を検索できる。
+            //祖先要素とは、親とその親と順々にさかのぼっていって最初に一致する要素のこと。
+
+            //2秒後に実行される関数
+            setTimeout( () => {
+                const target = document.querySelector( "#target" );
+                const seciton = target.closest( "section" );    //targetの祖先要素のsectionタグを検索
+                seciton.prepend( "発見 -> " );                  //sectionタグの先頭に文字を追加
+            } , 2000 );
+
+        </script>
+        
+    </body>
+
+</html>
