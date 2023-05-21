@@ -1,0 +1,27 @@
+<html>
+
+    <body>
+
+        <div>ボタンを押すと色が変わるよ!!</div>
+        <button>ボタン</button>
+
+        <style>
+            .preparedClass{
+                color: red;
+                background-color: blue;
+            }
+        </style>
+
+        <script>
+            const div = document.querySelector( "div" );
+            const button = document.querySelector( "button" );
+
+            //イベントハンドラを設定
+            button.onclick = function () {
+                div.classList.toggle( "preparedClass" );
+            };
+        </script>
+        
+    </body>
+
+</html>
