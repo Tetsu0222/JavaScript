@@ -1,0 +1,54 @@
+<html>
+
+    <body>
+
+        <div id="div1"></div>
+
+        <div id="div2">
+            <button>ボタン</button>
+        </div>
+
+        <script>
+
+            //イベントの伝播
+            //キャプチャリングフェーズ、ターゲットフェーズ、バブリングフェーズの3つのフェーズに分かれている。
+            //HTML内の要素でイベントが発生した場合に、これら3つのフェーズが順番に実行されていく。
+
+            //CapturingPhase
+            //イベントの伝播で最初に発生するフェーズ
+            //発生したイベントと同じタイプのイベントが上位から下位へ伝播していく。
+            //例)window → Document → <html> …
+
+            //イベントハンドラやリスナーで登録したアクションは、基本的にキャプチャリングフェーズでは実行されない。
+            //イベントリスナでオプション設定したアクションのみ実行される。
+
+            //Elementの取得
+            const div1 = document.querySelector( "#div1" );
+            const div2 = document.querySelector( "#div2" );
+            const button = document.querySelector( "button" );
+
+            //windowにclickイベントを登録
+            window.addEventListener( "click" , () => {
+                console.log( "windowのclickイベント" );
+            } , { capture:true } ); //キャプチャリングフェーズで実行されるようオプション設定
+
+            //div1にclickイベントを登録
+            div1.addEventListener( "click" , () => {
+                console.log( "div1のclickイベント" );
+            } , { capture:true } );
+
+            //div2にclickイベントを登録
+            div2.addEventListener( "click" , () => {
+                console.log( "div2のclickイベント" );
+            } , { capture:true } );
+
+            //buttonにclickイベントを登録
+            button.addEventListener( "click" , () => {
+                console.log( "buttonのclickイベント" );
+            }, { capture:true } );
+            
+        </script>
+        
+    </body>
+
+</html>
