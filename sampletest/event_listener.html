@@ -2,9 +2,34 @@
 
     <body>
 
+        <div>
+            <button id="minus">-</button>
+            <button id="number">0</button>
+            <button id="plus">+</button>
+        </div>
+
         <script>
 
-            //
+            //イベントリスナでの実装
+            //イベントハンドラとの違いは、オプションの指定が可能、複数のアクションを登録可、アクション毎に登録解除が可能
+
+            //数値の初期化
+            let count = 0;
+
+            //Elementの取得
+            const number = document.querySelector( "#number" );
+            const plusBtn = document.querySelector( "#plus" );
+            const minusBtn = document.querySelector( "#minus" );
+
+            plusBtn.addEventListener( "click" , function( event ) {
+                count++;
+                number.textContent = count;
+            });
+
+            minusBtn.addEventListener( "click" , function( event ) {
+                count--;
+                number.textContent = count;
+            });
 
         </script>
         
