@@ -1,0 +1,28 @@
+<html>
+
+    <body>
+
+        <div>
+            色は変わりません。
+        </div>
+
+        <script>
+
+            //イベントリスナの登録解除
+            
+            const targetEl = document.querySelector( "div" );
+            const colorBtn = document.querySelector( "#color" );
+
+            function colorChange( event ){
+                targetEl.style.color = "#ff0000";
+            }
+
+            colorBtn.addEventListenerc( "click" , colorChange );
+            colorBtn.removeEventListener( "click" , colorChange );  //ここでイベントリスナを解除している。
+
+
+        </script>
+        
+    </body>
+
+</html>
