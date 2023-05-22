@@ -1,0 +1,47 @@
+<html>
+
+    <body>
+
+        <div id="div1"></div>
+
+        <div id="div2">
+            <button>ボタン</button>
+        </div>
+
+        <script>
+
+            //ターゲットフェーズ
+            //キャプチャリングフェーズによって、イベントの伝播が発生した要素まで到達すると、ターゲットフェーズへ移行する。
+            //イベントが発生した要素に登録されているアクションを実行する。
+
+
+            //バブリングフェーズ
+            //ターゲットフェーズが完了すると、今度は上位の親要素、祖先要素に対してイベントの伝播が発生する。
+            //キャプチャリングフェーズで実行されたアクションは、バブリングフェーズで遡った時に実行されない。
+
+
+            //Elementオブジェクトの取得
+            const div1 = document.querySelector( "#div1" );
+            const div2 = document.querySelector( "#div2" );
+            const button = document.querySelector( "button" );
+
+            //windowにclickイベントの登録（capture:true)
+            window.addEventListener( "click" , () => {
+                console.log( "winodwのclickイベント" );
+            } , { capture:true });
+
+            //div2にclickイベントを登録
+            div2.addEventListener( "click" , () => {
+                console.log( "div2のclickイベント" );
+            } );
+
+            //buttonにclickイベントを登録
+            button.addEventListener( "click" , () => {
+                console.log( "buttonのclickイベント" );
+            } );
+
+        </script>
+        
+    </body>
+
+</html>
