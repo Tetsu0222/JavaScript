@@ -5,14 +5,17 @@
 
         <!-- フォーム送信時にcheckText関数を実行する -->
         <form name="myform" onsubmit="checkText()">
-            <input name="mytext" type="text" />
+            <label>氏名</label>
+            <input name="name" type="text" />
+            <label>年齢</label>
+            <input name="age" type="text" />
             <input type="submit" value="送信" />
         </form>
 
         <script>
             function checkText() {
                 //入力ボックスの内容を表示する
-                alert( document.myform.mytext.value );
+                alert( document.myform.name.value + document.myform.age.value );
             }
         </script>
         
