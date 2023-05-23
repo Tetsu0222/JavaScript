@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+        <!-- onchange関数で文字が入力されるとボタンが表示される。 -->
+        <form name="myform" accept-charset="utf-8" onsubmit="return checkText()">
+            <label>氏名</label>
+            <input type="text" name="mytext" value="" placeholder="入力後、ボタンが表示" onchange="myfunc(this.value)">
+            <button id="btn" type="submit">送信</button>
+        </form>
+
+        <script>
+            
+            //Elementを指定後、そのElementは非表示に初期設定
+            document.getElementById("btn").style.display ="none";   //noneに指定すると非表示にできる。
+
+            //onchange関数,文字の入力に反応して実行
+            function myfunc(value) {
+
+                var btn = document.getElementById("btn");   //Elementを取得
+
+                //値が入力されるとボタンを表示させる。
+                if(btn.style.display=="block"){     
+                    // noneで非表示
+                    btn.style.display ="none";
+
+                }else{
+                    // blockで表示
+                    btn.style.display ="block";
+                }
+                    
+            }
+
+            //ボタン表示後、押下されるとアラートで入力した文字を表示させる。
+            function checkText() {
+
+                var text = document.myform.mytext.value;
+  
+                //文字が未入力であれば、エラーをアラートに表示する。
+                if(text.length === 0) {
+                    alert('文字が入力されていません！');
+                    return false;   //処理を中断させるために、returnを記載(falseはダミーで返す)
+                }
+
+                //文字が入力されていれば、入力値をアラートに表示
+                alert( text );
+
+            }
+
+        </script>
+        
+    </body>
+
+</html>
