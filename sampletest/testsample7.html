@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <select id="myselectbox" onchange="myfunc()">
+            <option value="東京">東京</option>
+            <option value="神奈川">神奈川</option>
+            <option value="千葉">千葉</option>
+        </select>
+        <p id="target">
+        </p>
+    </body>
+
+    <script>
+        function myfunc() {
+            var value　= document.getElementById("myselectbox").value;
+            var target = document.getElementById("target");
+            var text = '';
+            if(value === '東京'){
+                text = '東京にはスカイツリーがあります';
+            }
+            else if(value === '神奈川'){
+                text = '神奈川には鎌倉があります';
+            }
+            else if(value === '千葉'){
+                text = '千葉にはディズニーランドがあります';
+            }
+            target.innerHTML = text;
+        }
+    </script>
+
+</html>
