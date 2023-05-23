@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <form name="test_from">
+            <p>このサイトを何で知りましたか？</p>
+              <input id="Checkbox1" name="test" type="checkbox" value="雑誌" onchange="myfunc()"/>雑誌
+            　<input id="Checkbox2" name="test" type="checkbox" value="チラシ" onchange="myfunc()"/>チラシ
+            　<input name="all" type="checkbox" onClick="AllChecked();"/>全て選択
+            <div id="hidden1">
+              <p>雑誌の名前をお答えください</p>
+              <input type="text" name="bookname" value="" placeholder="雑誌名" >
+            </div>
+            
+            <div id="hidden2">
+              <p>チラシはどこで配られていましたか？</p>
+              <input type="text" name="chirashi" value="" placeholder="場所" >
+            </div>
+        </form>
+
+        <script>
+
+            //Elementを取得
+            document.getElementById("hidden1").style.display ="none";
+            document.getElementById("hidden2").style.display ="none";
+
+            
+            function AllChecked(){
+                var check =  document.test_from.all.checked;
+                for (var i=0; i<document.test_from.test.length; i++){
+                    document.test_from.test[i].checked = check;
+                }
+                myfunc()
+                }
+
+                function myfunc() {
+                var check1 = document.getElementById("Checkbox1").checked;
+                var check2 = document.getElementById("Checkbox2").checked;
+                var hidden1 = document.getElementById("hidden1");
+                var hidden2 = document.getElementById("hidden2");
+                if(check1 == true){
+                    hidden1.style.display ="block";
+                    }
+                else{
+                    hidden1.style.display ="none";
+                }
+                if(check2 == true){
+                    hidden2.style.display ="block";
+                    }
+                else{
+                    hidden2.style.display ="none";
+                }
+            }
+        </script>
+        
+    </body>
+
+</html>
