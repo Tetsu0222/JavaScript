@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <!-- フォーム送信時にcheckText関数を実行する -->
+        <form name="myform" onsubmit="checkText()">
+            <input name="mytext" type="text" />
+            <input type="submit" value="送信" />
+        </form>
+
+        <script>
+            function checkText() {
+                //入力ボックスの内容を表示する
+                alert( document.myform.mytext.value );
+            }
+        </script>
+        
+    </body>
+
+</html>
