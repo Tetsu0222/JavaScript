@@ -5,6 +5,30 @@
 
         <script>
 
+            //関数の先頭に付与することで、非同期関数という特殊な関数を定義できる。
+            //非同期関数がreturnする値は、必ずPromiseインスタンスとなる。
+            async function asyncFunction() {
+                return "hello"; //Promiseでラップされたhello
+            }
+
+            asyncFunction().then( (returnVal) => {  //Promiseインスタンスであるため、thenの呼び出しが可能
+                alert( returnVal );
+            });
+
+            //await
+            //Promiseインスタンスの前に記述することで、Promiseのステータスがsettledになるまで、後続のコードの実行を待機する。
+            //非同期関数内でしか使用できない。
+
+            const prom = new Promise( resolve => {
+                setTimeout( () => resolve( "取り出される値" ) , 1000 )
+            });
+
+            async function async2Function(){
+                const value = await prom;
+                alert( value );
+            }
+
+            async2Function();
 
         </script>
         
