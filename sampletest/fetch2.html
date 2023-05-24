@@ -1,0 +1,28 @@
+<html>
+
+    <body>
+
+        <script>
+
+            window.addEventListener('DOMContentLoaded', function(){
+                //fetchの構文
+
+                // Fetch APIでデータ送信
+                fetch('/test.php', {　 //送信先URL
+                    method: 'post',     //通信メソッド
+                    headers: {
+                        'Content-Type': 'application/json' //JSON形式のデータのヘッダー
+                    },
+                    body: JSON.stringify(data) // JSON形式のデータ
+                })
+                .then(response => response.text())  //レスポンスの文字列を取得する。Promiseでラップされている。
+                .then(data => {
+                        console.log(data);
+                });
+            });
+
+        </script>
+        
+    </body>
+
+</html>
