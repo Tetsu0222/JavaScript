@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            //非同期処理を扱うオブジェクト
+            let instance = new Promise( ( resolve , reject ) => {
+
+                setTimeout( () => {
+
+                    const rand = Math.floor( Math.random() * 11 );  //0～10のランダムな値を取得
+
+                    if( rand < 5 ){
+                        reject( rand );
+                        
+                    }else{
+                        resolve( rand );
+                    }
+
+                } , 1000 );
+
+                });
+
+                //非同期処理に成功した際の関数(thenで呼び出す)
+                instance = instance.then( value => {
+                    alert( "5以上の値の" + value + "が渡ってきました" );
+                });
+
+                //非同期処理に失敗した時の関数(catchで呼び出す)
+                instance = instance.catch( errorValue => {
+                    alert( "5未満の値の" + value + "が渡ってきました" );
+                });
+
+                //成否に関わらず実行される関数
+                instance = instance.finally( () => {
+                    alert( "処理を終了します" );
+                });
+
+        </script>
+        
+    </body>
+
+</html>
