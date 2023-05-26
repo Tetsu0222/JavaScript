@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <section>
+            seciton<br>
+            <div>
+                div<br>
+                <button>button</button>
+            </div>
+            <p>p</br>この要素は伝播の対象外です。</p>
+        </section>
+
+        <style>
+            section,div,p,button{
+                padding: 10px;
+                border:10px solid skyblue;
+            }
+        </style>
+
+        <script>
+
+            //stopPropagationメソッドを呼び出すことで、他の要素への伝播を止めることができる。
+            //キャプチャリングフェーズで呼び出された場合には、下位の要素に設定されているアクションが実行されることはない。
+
+
+            const button = document.querySelector( "button" );
+            const div = document.querySelector( "div" );
+            const seciton = document.querySelector( "section" );
+
+            //buttonに対するアクションを登録
+            button.addEventListener( "click" , ( event ) => {
+                console.log( "divのclickイベントが実行されました" );
+            } );
+
+            //divに対するアクションを登録
+            div.addEventListener( "click" , ( event ) => {
+                console.log( "divのclickイベントが実行されました" );
+            } );
+
+            //sectionに対するアクションを登録
+            seciton.addEventListener( "click" , ( event ) => {
+                event.stopPropagation();    //イベントの伝播を停止する。
+                console.log( "sectionのclickイベントが実行されました" );
+            } , { capture : true } );   //キャプチャリングフェーズでアクションを実行
+
+
+            //ボタンがクリックされた場合、最上位要素である<section>のclickイベントが発火する。
+            //stopPropagationが実行されるため、他の要素（divとbutton)には伝播せず、section内の処理だけが実行される。
+
+        </script>
+        
+    </body>
+
+</html>
