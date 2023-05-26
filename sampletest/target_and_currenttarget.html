@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <section id="container">
+            <button>ボタン</button>
+        </section>
+
+        <script>
+            //-----targetとcurrentTargetの違い
+
+            //#conteiner(sectionタグにアクションを登録する)
+            const containerEl = document.querySelector( "#container" );
+
+            containerEl.addEventListener( "click" , function( event ){
+                console.log( "currentTarget" + event.currentTarget.nodeName );  //cuurentTargetにはアクションを登録した要素が格納される。
+                console.log( "target" + event.target.nodeName );    //targetはイベントが発生した要素が格納される。
+            });
+
+
+            //cuurentTargetでは「secition」が出力
+            //targetでは「button」が出力される。
+
+        </script>
+        
+    </body>
+
+</html>
