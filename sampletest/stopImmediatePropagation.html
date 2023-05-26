@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <div>
+            この要素の色が変わります!!
+        </div>
+        <button id="all-color">文字色と背景色の変更</button>
+        <script>
+            const targetEl = document.querySelector( "div" );
+            const allColorBtn = document.querySelector( "#all-color" );
+
+            //文字色を変更するアクション
+            function colorChange( ebent ){
+                event.stopImmediatePropagation();       //後続のアクションのイベント伝播を停止する。
+                targetEl.style.color = "#ff0000";   //文字色を赤へ変更
+            }
+
+            //背景色を変更するアクション
+            function bgColorChange( event ){
+                targetEl.style.backgroundColor = "blue";    //背景色を青色に変更
+            }
+
+            //関数を2つ登録可能
+            //アクションは登録された順番( colorChange → bgColorChange )で実行される。
+            allColorBtn.addEventListener( "click" , colorChange );
+            allColorBtn.addEventListener( "click" , bgColorChange );
+
+            //2つのアクションを登録しているが、先に実行されるcolorChangeにおいて
+            //後続のアクションのイベント伝播を停止する処理を実行しているため、後続のbgColorChangeは実行されない。
+            //よって、本来は文字色だけでなく背景色も変わるのだが、今回の処理であれば文字色のみ変化する。
+
+            //しかし、ここまでの処理では、ブラウザのデフォルト処理を停止することはできない。
+            //別のメソッドを使用する必要がある。
+            
+
+        </script>
+        
+    </body>
+
+</html>
