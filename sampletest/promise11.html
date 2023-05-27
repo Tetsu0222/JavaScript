@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            //---Promiseの状態について---
+
+            //Promiseオブジェクトをresolveするのは、コンストラクタのexecutor関数内で行う。
+            //executor関数に渡されるresolve関数は、まさにresolveするための関数である。
+
+
+            //resolve関数の内部的な動作モデル
+            function resolve( resolver ){
+
+                if( resolver === Promise ){
+                    resolver.then( function( value ){
+                        //自身をvalueでfulfillする。
+                    },function( reason ){
+                        //自身をreasonでrejectする。
+                    });
+
+                }else{
+                    //revolverは値
+                    //自身をresolverでfulfillする。
+                }
+
+            }
+
+
+            //resolve関数に渡された値がPromiseオブジェクトならば、それに連動させる。
+            //もし通常の値ならば、その値でfulfillする。
+
+
+
+            //---Promise.resolve----
+            //resolveメソッドは、与えられた値であらかじめresolveされているPromiseオブジェクトを生成する。
+
+            const p1 = Promise.resolve( "result1" );    //p1はresult1でresolveされている。
+            //p1はfulfilledの状態
+
+
+            const p2 = new Promise( asyncFunc );
+            const p3 = Promise.resolve( p2 );       //p3はp2でresolveされている。
+            //p3とp2は連動していると考えられる。
+
+
+            //Primiseオブジェクトは、まだ得られていないかもしれない非同期処理の結果を表す値である。
+            //つまり、通常の値と、Primiseオブジェクトを同じように扱うためには、resolveの動作は便利に使える。
+
+            //受け取ったものが通常の値であれば、自身の値をそれに設定する。
+            //受け取ったものがPromiseオブジェクトであれば、自身の値をPromiseオブジェクトで予約することができる。
+            //そして、実際に結果が得られた時、自身の値が定まる。
+
+            //一連の動作は、resolveする値がPromiseオブジェクトであっても、通常の値であっても、期待通りに動作することを意味している。
+        
+
+        </script>
+        
+    </body>
+
+</html>
