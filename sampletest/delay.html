@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            function delay( fn , message , ms ){
+                setTimeout( function() {
+                    fn( message );
+                } , ms );
+            }
+
+            function con( message ){
+                console.log( message );
+            }
+
+            /*
+            delay( con , "こんにちは" , 1000 );
+            delay( con , "さようなら" , 2000 );
+            */
+
+            delay( function( message1 ) {
+
+                    console.log( message1 );
+
+                    delay( function( message2 ) {
+                        console.log( message2 ); 
+                    } , "さらに1秒経ちました" , 1000 );
+
+                    } , "1秒経ちました" , 1000 );
+
+        </script>
+        
+    </body>
+
+</html>
