@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <label>氏名</label>
+
+        <button id="block">出るボタン</button>
+        <button id="none">消えるボタン</button>
+        <label id="test" class="test">読み込み完了!!</label>
+        
+        <style>
+            .test{
+                display: none;
+            }
+        </style>
+
+
+        <script>
+
+            const blockBt = document.querySelector( "#block" );
+
+            blockBt.addEventListener( "click" , async function( event ) {
+                const result = await is_Error;
+                if( result ){
+                    document.getElementById("test").style.display ="block";
+                }
+            });
+
+
+            const is_Error = new Promise( resolve => {
+                setTimeout( () => resolve( true ) , 5000 )
+            });
+
+        </script>
+        
+    </body>
+
+</html>
