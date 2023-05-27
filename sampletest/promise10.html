@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            //---Promiseの状態について---
+
+            //Promiseには基本の3つの状態の他に、resolvedという状態が存在している。
+            //これは、settledとは別の扱いになる。
+
+            //Promiseがresolvedの状態とは、settledの状態か、もしくは、別のPromiseオブジェクトと連動している状態にあることをいう。
+            //具体的には、Promiseオブジェクトが2つ存在しており、p1に連動したp2が存在すると仮定する。
+
+
+            //p1は1秒後にfulfillされる。
+            const p1 = new Promise( function( resolve , reject ){
+                setTimeout( function() {
+                    resolve( "result1" );
+                } , 1000 );
+            });
+
+            //p2はp1に連動する。
+            const p2 = new Promise( function( resolve , reject ){
+                resolve( p1 );
+            });
+
+            p1.then( function( result ){
+                console.log( "p1:" + result );
+            });
+
+            p2.then( function( result ){
+                console.log( "p2:" + result );
+            });
+
+
+            //Promiseオブジェクトp1は、生成から1秒後にresult1でfulfillされる。
+            //p2は、生成直後、同期的にp1でresolveされている。
+            //出力結果より、1秒後にp1がfulfillされ、すぐにp2がresult1でfulfillされている。
+
+
+            //以上のように、p2はp1と同じように動作し、同じ値を持つ。
+            //つまり、p1がある値でfulfillされた時、p2もその値でfulfillされる。
+
+        </script>
+        
+    </body>
+
+</html>
