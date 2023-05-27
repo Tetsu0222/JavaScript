@@ -1,0 +1,36 @@
+<html>
+
+    <body>
+
+        <from>
+            <label>氏名</label>
+            <input type="text">
+            
+        </from>
+
+        <button>ボタン</button>
+
+        <script>
+
+            //Fetch
+            //サーバーからデータやファイルを取得する非同期のAPI
+            
+            //サーバーに配置したJSONファイルをfetch関数で取得
+            //内容をコンソールで出力する。
+
+            
+            fetch( "sample.json" )  //同じフォルダ内の相対パスを指定
+            .then( response => response.json() )
+            .then( data => {
+                for( const { key , value } of data ){
+                    console.log( key + ":" + value );
+                }
+            } );
+            
+
+
+        </script>
+        
+    </body>
+
+</html>
