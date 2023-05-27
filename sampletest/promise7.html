@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            function promiseFactory( count ){
+                return new Promise( ( resolve , reject ) => {
+                    setTimeout( () => {
+                        console.log( count );
+                        count = count + 2;
+
+                        //Promiseでラップしないと、次のthenに値を渡すことができない。
+                        resolve( count );   //ここで次のthenに値を渡している。
+
+                    } , 1000 );
+                });
+            }
+
+            promiseFactory( 0 )
+            .then( count => promiseFactory( count ) )
+            .then( count => promiseFactory( count ) )
+            .then( count => promiseFactory( count ) );
+
+        </script>
+        
+    </body>
+
+</html>
