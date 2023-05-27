@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            
+            //---Promiseの状態について---
+
+            let promResolve , promReject;   //Promiseの状態の参照変数
+
+            //Promiseオブジェクトの生成と同時に、状態の参照先を変数に設定
+            const prom = new Promise( ( resolve , reject ) => {
+                promResolve = resolve;
+                promReject = reject;
+            });
+
+            //Promiseが結果を得られていない状態でコンソールで出力
+            console.log( prom );    //pending と出力される。
+
+            //Promiseに値を渡す。
+            promResolve( "引数" );  //この時のPromiseの状態はfulfilled
+
+            console.log( prom );    //Promise{<fulfilled>:"引数"}と出力される。
+
+            
+            //Promiseは結果が得られているかどうかで3つの状態をもつ。
+            //初期状態（Promiseインスタンスを生成した直後）はpending
+            //結果を得ている状態はfulfilled
+            //エラーが発生している状態はrejected
+
+            //なお、Promiseの状態がfulfilledかrejectedへ1度でも変わると、以降は状態が変わることはない。
+            //つまり、同じPromiseインスタンスで、上記のコードの続きでpromRejectを呼び出したとしても
+            //ステータスがrejectedに変わることはない。
+            
+            //そのため、初期状態をpendingと呼び、何かしらの結果を得られている状態を総称してsettledと呼ぶことがある。
+            //pending → settled( fulfilled or rejected )
+
+
+            //さらに、Promiseには第4形態が存在する。
+            
+
+
+        </script>
+        
+    </body>
+
+</html>
