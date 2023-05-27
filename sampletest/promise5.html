@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            //---Promiseオブジェクトの生成---
+            //非同期処理APIによるものではなく、伝統的なコールバック関数などのイベントによるものの場合
+            //Promiseオブジェクトは生成する必要がある。
+
+            const p1 = new Promise( executer ); //Promiseオブジェクトの生成
+                                                //コンストラクタには、executerと呼ばれる関数を渡す。
+                                                //このexecuterには、非同期処理APIの呼び出しを記述する。
+
+
+            //無名関数による非同期処理APIの呼び出し。
+            const p2 = new Promise( function () {
+                //無名関数による非同期処理APIの呼び出し。
+            });
+
+
+            //executer関数は、Promiseオブジェクトの生成時、コンストラクタによって呼び出される。
+            //その際に、第1引数として、resolveと呼ばれる関数（クロージャ）が渡される。
+
+            //resolve関数は、非同期処理が完了したとき、結果を渡して呼び出すものである。
+
+            const p3 = new Promise( function(resolve){
+                setTimeout( function(){     //ブラウザの非同期処理API
+                    resolve( "result1" );   //resolve関数に結果を渡す。
+                } , 1000 );
+            });
+
+            //上記のコードは、1秒後に、resolve関数に結果の値（result1)を渡している。
+            //これにより、Promiseオブジェクトは、非同期処理の結果を保持していることになる。
+
+
+            //---Promiseオブジェクトから結果の取得---
+            //Promiseオブジェクトにコールバック関数を登録することで、非同期処理の結果を得ることが可能
+
+            p3.then( function( result ){    //Promiseオブジェクトから結果の値を取得(result変数へ格納)
+                console.log( result );      //非同期処理の結果をコンソールで出力
+            });
+
+
+
+            //ここまでがPromiseオブジェクトの基本的な利用方法となる。
+            //ちなみに、結果は、1秒後に「result1」がコンソールで出力される。
+
+
+
+        </script>
+        
+    </body>
+
+</html>
