@@ -21,9 +21,7 @@
 
             blockBt.addEventListener( "click" , async function( event ) {
                 const number = await numberFactory;
-                console.log( number );
                 const result = await is_Error( number );
-                console.log( result );
                 if( result ){
                     document.getElementById("test").style.display ="block";
                 }else{
@@ -31,26 +29,32 @@
                 }
             });
 
+            //ランダムで数値を生成
             const numberFactory = new Promise( resolve => {
                 setTimeout( () => resolve(Math.random() * 10 ) )
             });
 
+            //生成された数値に応じて処理を分岐させる。
             function is_Error( number ){
-                return new Promise( ( resolve ) => {
-                    setTimeout( () => {
 
+                return new Promise( ( resolve ) => {
+
+                    setTimeout( () => {
                         if( number > 3 ){
                             return resolve( true );
                         }
                         return resolve( false );
                     });
+
                 });
             }
 
 
+            //文字を非表示にする。
             noneBt.addEventListener( "click" , function( event ){
                 document.getElementById("test").style.display ="none";
-            })
+            });
+
 
         </script>
         

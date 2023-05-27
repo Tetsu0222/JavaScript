@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <button id="block">送信</button>
+        <button id="none">消えるボタン</button>
+        <label id="test" class="test">読み込み完了!!</label>
+
+        <style>
+            .test{
+                display: none;
+            }
+        </style>
+
+        <script>
+
+            const blockBt = document.querySelector( "#block" );
+            const noneBt = document.querySelector( "#none" );
+
+            async function callApi(){
+
+                //JSONプレースホルダサイトからJSONデータを取得（レスポンスで保持されている）
+                const res = await fetch( "https://jsonplaceholder.typicode.com/users" );
+
+                //JSONデータを取得して変数に格納
+                const users = await res.json();
+
+                //コンソールで出力
+                console.log( users );
+
+                //読み込み完了したことを通知
+                document.getElementById("test").style.display ="block";
+            }
+
+            blockBt.addEventListener( "click" , function( event ) {
+                callApi();
+            });
+
+
+            //文字を非表示にする。
+            noneBt.addEventListener( "click" , function( event ){
+                document.getElementById("test").style.display ="none";
+            });
+
+
+
+            //then()を使わない!!
+            //本来はtry-catchで囲う。
+
+        </script>
+        
+    </body>
+
+</html>
