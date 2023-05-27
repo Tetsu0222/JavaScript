@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            
+            const prom1 = new Promise( resolve => {
+                setTimeout( () => resolve( "この値を取り出します" ) , 1000 )
+            });
+
+            async function asyncFunction1() {
+                const value = prom;
+                console.log( value );   //Promiseがそのまま出力される。
+            }
+
+            asyncFunction1();
+            
+
+            const prom2 = new Promise( resolve => {
+                setTimeout( () => resolve( "この値を取り出します" ) , 1000 )
+            });
+
+            async function asyncFunction2() {
+                const value = await prom;
+                console.log( value );   //「この値を取り出します」と表示される。
+            }
+
+            asyncFunction2();
+
+
+            //awaitには、Promise内のresolveの実引数の値を取り出す役割もある。
+            //async内はPromiseを返す。また、async(非同期関数)内でawaitを使用すると、値が取得できるまで後続の処理を待機する。
+
+        </script>
+        
+    </body>
+
+</html>
