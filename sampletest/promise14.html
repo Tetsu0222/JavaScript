@@ -31,14 +31,16 @@
 
                 //読み込み完了したことを通知
                 document.getElementById("test").style.display ="block";
+
             }
 
+            //送信ボタンの処理
             blockBt.addEventListener( "click" , function( event ) {
                 callApi();
             });
 
 
-            //文字を非表示にする。
+            //消えるボタンの処理,文字を非表示にする。
             noneBt.addEventListener( "click" , function( event ){
                 document.getElementById("test").style.display ="none";
             });
