@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>サンプル</title>
+    </head>
+
+    <body>
+
+        <p>サンプルページです。</p>
+
+        <p>
+            <label>名前：<input type="text" id="nametext"></label>
+            <label id="name"></label>
+        </p>
+
+        <p>
+            <label>勤務地：
+                <select id="address">
+                <option value="">選択してください</option>
+                <option value="tokyo">東京都</option>
+                <option value="osaka">大阪府</option>
+                <option value="kanagawa">神奈川県</option>
+                </select>
+            </label>
+            <label id="addressError"></label>
+        </p>
+
+        <p>
+            <input type="radio" id="sales" name="div" value="sales" checked>
+            <label for="sales">営業</label><br>
+            <input type="radio" id="develop" name="div" value="develop">
+            <label for="develop">開発</label><br>
+            <input type="radio" id="human" name="div" value="human">
+            <label for="human">人事</label><br>
+            <label id="Error"></label>
+        </p>
+
+        <script>
+
+            //名前欄のバリデーションチェック
+            function inputChangeName(event){
+                document.getElementById("name").innerText 
+                    = event.currentTarget.value;  //入力値を取得して表示
+            }
+
+            //勤務地のバリデーションチェック
+            function inputChangeAddress(event){
+                document.getElementById("addressError").innerText 
+                    = event.currentTarget.value;
+            }
+
+            //部門のバリデーションチェック
+            function inputChange(event){
+                document.getElementById("Error").innerText 
+                    = event.currentTarget.value;
+            }
+
+
+
+            //---各項目のイベントリスナー---
+            let text = document.getElementById('nametext');
+            text.addEventListener('change', inputChangeName);
+            
+
+            let address = document.getElementById('address');
+            address.addEventListener('change', inputChangeAddress);
+
+
+            let radiosales = document.getElementById('sales');
+            radiosales.addEventListener('change', inputChange);
+
+            let radiodevelop = document.getElementById('develop');
+            radiodevelop.addEventListener('change', inputChange);
+
+            let radiohuman = document.getElementById('human');
+            radiohuman.addEventListener('change', inputChange);
+        </script>
+
+    </body>
+</html>
