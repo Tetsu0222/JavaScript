@@ -4,7 +4,7 @@
     <body>
 
         
-        <form name="contact">
+        <form name="contact" onsubmit="return cancel()">
             <label>氏名</label>
             <input type="text" name="name" id="name">
 
@@ -18,45 +18,24 @@
         
         <script>
 
-            
-            let is_error = false;
+            //フォームの入力に対応する処理
+            function cancel(){
 
-            /*
-            window.addEventListener('change', function(){
-                if( is_error ){
-                    document.getElementById("test").style.display ="block"; //登録完了の文字を表示
-                }
-            });
-            */
-
-            //登録ボタンのElementを取得
-            const registerBt = document.querySelector( "#register" );
-
-            const register2Bt = document.querySelector( "#register2" );
-
-            //登録ボタンにイベントリスナーを設定
-            registerBt.addEventListener('click', function( event ){
-                callApi();
-            });
-
-            function callApi(){
                 const formElements = document.forms.contact;    //フォーム全体の要素を取得
                 const name = formElements.name.value;           //name属性の入力値を取得
                 const company = formElements.company.value;     //company属性の入力値を取得
-                is_error = true;
-                //alert( name + company );
-                console.log( is_error );
-                callApi2();
-            }
 
-            function callApi2(){
+                //エラーを取得(サーバーサイドでバリデーションチェックした結果を格納するように記述する。)
+                const is_error = false;
+
+                //入力値に誤りがあればフォーム処理を途中でキャンセルする(画面がリロードされずエラーメッセージを出力できる)
                 if( is_error ){
-                    document.getElementById("test").innerText = "登録完了";
+                    document.getElementById("test").innerText = "エラーがあります"; //エラーメッセージを設定
+                    return false;
                 }
+
+                alert( name + company );
             }
-
-
-            //同期でも非同期でも、formに入力した値と一緒に、変更点が消える。
 
         </script>
         
