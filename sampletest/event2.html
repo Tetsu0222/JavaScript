@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        
+        <label>名前：<input type="text" id="nametext"></label>
+        <label id="test" class="test"></label>
+
+        
+        <script>
+
+            function inputChange(){
+                document.getElementById("test").innerText = "エラーがあります";
+            }
+
+            let text = document.getElementById('nametext');
+            text.onchange = inputChange;
+
+        </script>
+        
+    </body>
+
+</html>
