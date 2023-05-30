@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            //---配列のメソッド---
+
+            const array1 = [ "test" , "sample" , "testsample" ];
+
+
+            //---配列に要素を追加---
+            array1.push( "sampletest" );    //push()は末尾に要素を追加する。
+            console.log( array1 );          //[ "test" , "sample" , "testsample" , "sampletest" ]が出力される。
+
+            array1.unshift( "test1" );      //unshift()は先頭に要素を追加する。
+            console.log( array1 );          //[ "test1" , "test" , "sample" , "testsample" , "sampletest" ]が出力される。
+
+
+            //---配列から要素を削除---
+            let value = array1.shift();     //shift()は配列の先頭から要素を削除して取得する。
+            console.log( value );           //test1
+
+            let value2 = array1.pop();      //pop()は配列の末尾から要素を削除して取得する。
+            console.log( value2 );          //sampletest
+
+            //範囲を指定して切り取り
+            let array2 = array1.splice( 0 , 2 );    //第1引数は開始位置、第2引数は開始位置からの個数
+            console.log( array1 );                  //残った要素    testsample
+            console.log( array2 );                  //切り取った要素    test sample
+
+
+        </script>
+        
+    </body>
+
+</html>
