@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+
+            //JSONデータからキーだけを取得する。
+
+            //サンプルJSONデータ
+            const s1 = '{"title": "装甲騎兵ボトムズ","direction": "高橋良輔","character": "キリコ・キュービィー"}'
+
+            //JSONデータをparse()で変換
+            const j1 = JSON.parse(s1)
+
+            //JSONデータのキーをリスト化
+            const keyList = Object.keys(j1)
+
+            //配列を生成（キー格納用）
+            const error_array = [];
+
+            //JSONのキーだけを配列へ格納
+            for (let k1 in keyList){
+                error_array.push( keyList[k1] );
+            };
+            
+
+            //JSONのキーだけをコンソールで出力
+            console.log( error_array );
+
+
+        </script>
+        
+    </body>
+
+</html>
