@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            //---map()とfilter()---
+
+
+            const fruits = [ "banana" , "orange" , "grape" ];
+            const array_number = [ 1 , 2 , 3 , 4 , 5 ];
+
+            function multiply5( value ){
+                return value + 5;
+            };
+
+            function gt3( value ){
+                return value > 3;
+            };
+
+
+            //関数で処理してから新たな配列を生成
+            const newFruits = fruits.map( multiply5 );  //map()は、引数のコールバック関数で処理した値で新たな配列を生成する。
+            console.log( newFruits );                   //banana5,orange5,grape5
+
+            const newNumber = array_number.map( multiply5 );
+            console.log( newNumber );                   //6 7 8 9 10
+
+
+
+            //特定の値を除外して新しい配列を生成
+            const newNumber2 = array_number.filter( gt3 );  //filter()は、関数で処理した結果、trueが返ってくる値だけで新しい配列を生成する。
+            console.log( newNumber2 );                      //4 5
+
+
+            //すべての要素の値が条件に一致するか真偽値で返す。
+            const result1 = array_number.every( value => value > 0 );   //引数は真偽値で返す関数を指定する。
+            console.log( result1 );                                     //true
+
+            const result2 = array_number.every( value => value > 3 );
+            console.log( result2 );                                     //false
+
+            //1つ以上の値が条件に合致するか確認
+            const result3 = array_number.some( value => value > 4 );
+            console.log( result3 );                                     //true
+
+            const result4 = array_number.some( value => value > 6 );
+            console.log( result4 );                                     //false
+
+
+
+            //最初に条件を満たした要素の値を取得
+            const result5 = array_number.find( value => value > 2 );
+            console.log( result5 );                                     //3
+
+
+        </script>
+        
+    </body>
+
+</html>
