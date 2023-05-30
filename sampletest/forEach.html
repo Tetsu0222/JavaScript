@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            //---forEach---
+
+
+            const fruits = [ "banana" , "orange" , "grape" ];
+            const fruits2 = [ "melon" , "mango" ];
+
+            //要素を順番にコンソールで出力
+            fruits.forEach( function( value ){
+                console.log( value );
+            });
+
+
+            //アロー関数で記述
+            fruits.forEach( ( value ) => {
+                console.log( value + 1 );
+            });
+
+
+            //名前付き関数を使用
+            function out_console( value ){
+                console.log( value + "test" );
+            };
+
+            function out_console2( value ){
+                console.log( value + "sample" );
+            };
+
+            fruits.forEach( out_console );  //コールバック関数を呼び出して処理できる。
+            fruits.forEach( out_console2 );
+
+
+
+        </script>
+        
+    </body>
+
+</html>
