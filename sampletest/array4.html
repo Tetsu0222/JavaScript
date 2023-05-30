@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            //---配列内の要素の存在チェック---
+
+
+            const fruits = [ "banana" , "orange" , "grape" ];
+            const fruits2 = [ "melon" , "mango" ];
+
+            //最初に一致したインデックスを返す。
+            const found = fruits.indexOf( "grape" );    //indexOf()は、引数で指定した要素の最初のインデックスを取得
+            const found2 = fruits.indexOf( "melon" );
+            console.log( found );                       //2
+            console.log( found2 );                      //-1    要素が存在しなければ-1を返す。
+
+            //配列に要素が存在するか真偽値で返す。
+            const is_Existence = fruits.includes( "grape" );    //includes()で、指定した要素が配列に存在するか真偽値を返す。
+            const is_Existence2 = fruits2.includes( "grape" );
+            console.log( is_Existence );                        //true
+            console.log( is_Existence2 );                       //false
+
+        </script>
+        
+    </body>
+
+</html>
