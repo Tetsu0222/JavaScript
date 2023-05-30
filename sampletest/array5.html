@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            //---その他の配列操作---
+
+
+            const fruits = [ "banana" , "orange" , "grape" ];
+            const fruits2 = [ "melon" , "mango" ];
+
+            //配列の要素を結合して文字列へ変換
+            let array_string = fruits.join( ":" );  //join()は、引数に指定した文字で配列を結合、文字列として変換する。
+            console.log( array_string );            //banana:orange:grape
+
+
+            //要素を特定の値で埋める。
+            const array1 = new Array( 10 );
+            array1.fill( 0 );                       //fill()の引数に、要素を埋めたい特定の値を指定する。
+            console.log( array1 );                  //10個の枠がすべて0で埋まる。
+
+
+            //多次元配列の平坦化(次元を減らす)
+            const array2 = [
+                1 , [ 2 ] , 3 ,
+                [ 4 , [ 5 ] ]
+            ];
+
+            const array3 = array2.flat();           //flat()で1次元分を平坦化
+            console.log( array3 );                  // 1 , 2 , 3 , 4 , array
+
+            const array4 = array2.flat( 2 );        //引数に平坦化レベルを指定できる。今回は2次元分
+            console.log( array4 );                  //1 , 2 , 3 , 4 , 5
+
+
+            //要素の順番を逆にする。
+            array4.reverse();                       //reverse()で要素の順番を反転
+            console.log( array4 );                  //5 , 4 , 3 , 2 , 1 
+
+
+
+        </script>
+        
+    </body>
+
+</html>
