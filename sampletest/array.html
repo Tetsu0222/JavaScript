@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            //---配列の基本操作---
+
+            //配列の初期化
+            const array1 = [ "test" , "sample" ];
+
+            //配列の要素を出力
+            console.log( array1[0] );   //test
+
+            //配列の長さを出力
+            console.log( array1.length );   //2
+
+            //配列の最後の要素を取得
+            console.log( array1[ array1.length - 1 ] ); //要素数-1で出力する。 sample
+
+            
+            //多次元配列
+            const array2 = [
+                [ "test" , "sample" , "testsample" ] ,
+                { name : "テスト" , age : "23歳" , gender : "男" }
+            ];
+
+            //多次元へのアクセス1
+            console.log( array2[0] );   //[ "test" , "sample" , "testsample" ]
+
+            //多次元配列へのアクセス2
+            console.log( array2[0][2] ); //testsample
+
+            //多次元配列へのアクセス3
+            console.log( array2[1],name );  //インデックス1のオブジェクト、nameプロパティを参照、テストが出力される。
+
+        </script>
+        
+    </body>
+
+</html>
