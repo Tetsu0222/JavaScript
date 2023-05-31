@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            //---reduce---
+
+            const array_number = [ 4 , 1 , 3 , 2 , 5 ];
+
+            const array_number2 = [ 4 , 1 , 3 , 2 , 5 ];
+            const array = [ "a" , "b" , "c" ];
+
+            function reducer( totalValue , currentValue ){
+                return totalValue + currentValue;
+            };
+
+            //数字の合計
+            const result = array_number.reduce( reducer );
+            console.log( result );
+
+            //文字も結合
+            const result2 = array.reduce( reducer );
+            console.log( result2 );
+
+            //reduceは、配列の要素を合計するイメージ
+            //コールバック関数で呼び出す関数は、第1引数が今までの合計（初回以外)
+            //第2引数は次の要素が渡される。
+
+
+        </script>
+        
+    </body>
+
+</html>
