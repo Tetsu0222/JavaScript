@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            //静的メソッド
+            //インスタンス化を行わなくても呼び出せるメソッド
+
+            //from()メソッド
+            const set = new Set(); 
+            set.add( 1 );
+            set.add( 2 );
+            set.add( 3 );
+
+            const newArray = Array.from( set );     //Arrayクラスの静的メソッドにより、setを配列へ変換
+            console.log( newArray );    //1 2 3を出力
+
+        </script>
+        
+    </body>
+
+</html>
