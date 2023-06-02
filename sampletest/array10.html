@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            //---配列の分割代入---
+
+
+            let arry = [ 1 , 2 , 3 ];
+
+            let [ x , y , z ] = arry;   //変数x y zに、配列の値をそれぞれ代入していく。
+            console.log( x , y , z );   //1 2 3が出力される。
+
+            let [ x1 , , z1 ] = arry;   //スキップしたい要素を空白にしておくと、不要な要素を割愛できる。
+            console.log( x1 , z1 ); //1 3が出力される。
+
+
+            let x2;
+            [ x2 ] = arry;      //すでに宣言済みの変数に大しても使用可能、要素数が一致していなくてもOK
+            console.log( x2 ); //1が出力される。
+
+
+
+        </script>
+        
+    </body>
+
+</html>
