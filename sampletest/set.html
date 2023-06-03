@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            //---set---
+            //一意の値を格納するためのコレクション
+            //重複した値を格納することはできず、上書きされる。
+
+            //配列からsetの生成
+            const Set1 = new Set( [ 1 , 2 , 3 ] );
+            console.log( Set1 ); //1 2 3 が出力される。
+
+            Set1.add( 4 );   //値を追加する。
+
+            console.log( Set1 ); //1 2 3 4が出力される。
+
+            Set1.add( 4 );   //重複した値を追加
+
+            console.log( Set1 ); //1 2 3 4が出力される。重複した値を格納できない。
+
+            Set1.delete( 3 );   //指定した値を削除
+
+            console.log( Set ); //1 2 4 が出力される。
+
+            const is_3 = Set1.has( 3 ); //指定した値がセット内に存在するか真偽値で返す。
+
+            console.log( is_3 );    //falseが出力される。
+
+
+
+        </script>
+        
+    </body>
+
+</html>
