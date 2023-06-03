@@ -1,0 +1,53 @@
+<html>
+
+    <body>
+
+        <script>
+
+            //---MAPオブジェクト---
+
+            //Mapの初期化
+            const emptyMap = new Map(); //空のマップの作製
+
+            //2次元配列からMapを生成
+            const map1 = new Map( [ "key1" , 1 ] , [ "key2" , 2 ] );
+
+
+            //Mapは、ドット記法などで値を取り出すことができないため、専用のメソッドを用いる。
+
+            const map2 = new Map();
+
+            //Mapに値を追加する。
+            map2.set( 1 , "apple" );    //数値をキー、文字列を値として登録
+            
+            const emptyObj = { };
+
+            map2.set( emptyObj , "orange" );   //オブジェクトをキー、文字列を値として登録
+            
+            
+            //Mapから値を取得
+            console.log( map2.get( emptyObj )); //キーを引数に値を取得し、orangeが出力される。
+
+            //Mapから値を削除
+            map2.delete( emptyObj );            //キーを引数にして、エントリーを削除する。
+
+            //Mapに指定のキーが存在するか確認
+            const is_emptyObj = map2.has( emptyObj );   //存在すればtrue、しなければfalseを返す。
+
+
+            //Mapからオブジェクトへ変換
+            const map3 = new Map( [
+                [ "キー1" , "値1" ],
+                [ "キー2" , "値2" ]
+            ]);
+
+            const obj = Object.fromEntries( map3 ); //Objectクラスのメソッドで変換できる。
+
+            console.log( obj[ "キー1"] );   //値1が出力される。
+
+
+        </script>
+        
+    </body>
+
+</html>
