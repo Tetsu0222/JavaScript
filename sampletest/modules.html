@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script type="module">
+            //スクリプトタグに上記のような属性を付与すると、そのJSコードはESMとして有効になる。
+
+            //モジュール
+            //ログイン機能など、1つのまとまりで機能を持つものをモジュールとして設計
+            //他のサイトや機能で使いまわすことができるようになる。
+
+            //モジュールの使用方法
+            //メインシステムとモジュールの間にインターフェースを定義
+            //インターフェースに併せてシステムを設計することで、モジュールの中身を知らなくてもメインシステムで利用できる。
+
+            //また、モジュールから別のモジュールへ変更する際も、
+            //インターフェースを通じて実装することで、メインシステムへ影響や変更を与えずにモジュールを変更できる。
+
+
+            //JSでは2種類のモジュールがある。
+            //1つがESM、もう1つがCommonJS
+            //ESMはブラウザとNode.JSの共に利用できるが、CommonJSはNode.JSのみで利用可能
+
+            //<script type="module" src="/">
+            //上記のように定義すると、別のJSファイル（モジュール）を読み込むことができる。
+            //srcには、読み込みたいJSファイルまでのパスを記述する。
+
+
+            //---エクスポート---
+
+            //名前付きエクスポート
+            //基本的に、変数名や関数名がそのまま外部から呼び出す時の識別子になる。
+            //名前が重複するとエラーになるため、asで別名を付与することも可能
+
+            //変数のエクスポート
+            export let variable = "変数のエクスポート";
+            export const constant = "定数のエクスポートも可能";
+
+            //複数の変数を一括でエクスポート
+            export let val1 = "値1" , val2 = "値2";
+
+            //関数やジェネレータ関数、クラスのエクスポート
+            export function exFunc(){}; //関数のエクスポート
+            export function* exFunc2(){};   //ジェネレータ関数のエクスポート
+            export class exClass{};     //クラスのエクスポート
+
+
+            //モジュール内で定義した変数、関数、クラスの一括エクスポート
+            let normalVariable = "モジュールないで宣言した変数";
+            function normalFunction(){};
+            class normalClass{ }
+            export { 
+                normalVariable , normalFunction , normalClass
+            };
+
+
+            //別名を使用してエクスポート
+            export{
+                normalVariable as publicVariable,
+                normalFunction as publicFunction,
+            };
+
+            
+
+        </script>
+        
+    </body>
+
+</html>
