@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            //デフォルトエクスポート
+            //モジュールには、1つだけデフォルトエクスポートを定義できる。
+            //デフォルトエクスポートで露出した機能は、モジュールの利用者がインポートする際に、任意の名前を付けることができる。
+            //よって、デフォルトエクスポートで露出する関数やクラス名は無視されることに注意が必要
+
+
+            //デフォルトエクスポート
+            export default function(){}
+
+            //アロー関数をデフォルトエクスポート
+            export default () => {}
+
+            //名前を付けても、importの際には任意の名前で扱うことが可能
+            export default function exportedFunc() {}
+
+            //クラスのエクスポート
+            export default class {}
+
+
+
+        </script>
+        
+    </body>
+
+</html>
