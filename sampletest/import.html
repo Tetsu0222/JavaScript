@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            //インポート
+            //JSでは、一般的に、インポートと記述されているものは静的インポートを示します。
+            //静的インポートは、読み込んだ時点で、インポート先のモジュールのトップレベルのコードまで実行します。
+
+            //名前付きエクスポートをインポート
+            import { exportedVariable } from "/path";
+
+            //別名をつけてインポート
+            import { exportedName as importednam } from "/path";
+
+            //デフォルトエクスポートと名前付きエクスポートをオブジェクトのプロパティとしてインポート
+            import * as moduleObject from "/path";
+
+            //デフォルトエクスポートを読み込む。
+            import defaultExport from "/path";
+
+            //デフォルトエクスポートと名前付きエクスポートをインポート
+            import defaultExport , { namdedExport1 , namdeExport2 } from "/path";
+
+            //インポートなしで、モジュールのコードを1度だけ実行
+            import "/path/modulue.js";
+
+
+            //静的インポートの主な特徴
+
+            //fromに続くモジュール名に変数は使用できない。
+            const modulePath = "/path";
+            imoirt defaultExport from modulePath;   //エラーが発生する。
+
+            //読み込み時点で、読み込み先のトップレベルのコードが実行される。
+            //また、静的インポートによるモジュールの読み込みは、静的インポート以外のコードの実行前に行われる。
+            //つまり、インポートしたコードが、読み込み元のコードよりも先に実行される。
+
+        </script>
+        
+    </body>
+
+</html>
