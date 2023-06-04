@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            //インポート
+            //動的インポートは、別名ダイナミックインポートとも呼ばれる機能
+            //import関数を使って、必要な時に他のモジュールを読み込むことができる。
+            //画面の初期表示に必要ない機能などを動的インポートとして読み込むことで、初期表示の高速化を行うなど、様々な用途がある。
+
+
+            //Promiseでラップされたモジュールオブジェクトが渡される。
+            let promise = import( "./path" );
+
+            //thenで実行可能
+            promise.then( moduleObject => {
+                moduleObject.exportedFn();
+            });
+
+            //asyncやawaitでの動的インポートも可能
+
+            asyncFunc();
+            
+            async function asyncFunc(){
+                let { exportFn } = await import( "/path" );
+                exportFn();
+            };
+
+
+
+        </script>
+        
+    </body>
+
+</html>
