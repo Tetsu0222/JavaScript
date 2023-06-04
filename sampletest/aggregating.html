@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+
+        <script>
+
+            //モジュールの集約
+            //1つの機能を複数ファイルに細分化して管理する場合がある。
+            //そのようなケースで、モジュール集約でのエクスポートが必要となる。
+
+            //他のファイルで実装した関数やクラスを1つのファイルから呼び出せるようにする。
+            
+
+            //デフォルトエクスポートを含む、すべての機能をエクスポート
+            export * from "./sub.module.js";
+
+            //デフォルトエクスポートを含む、すべての機能をsubObjectオブジェクトのプロパティとしてエクスポート
+            export * as subObject from "./sub.module.js";
+
+            //特定の機能だけエクスポート
+            export { subVariable , subFunction , subClass } from "./sub.module.js";
+
+            //別名をつけてエクスポート
+            export{
+                subVariable as exportedVariable,
+            } from "./sub.module.js";
+
+            //デフォルトエクスポート
+            export { default } from "./sub.module.js";
+
+        </script>
+        
+    </body>
+
+</html>
